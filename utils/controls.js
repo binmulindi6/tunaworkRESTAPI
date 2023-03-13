@@ -1,22 +1,41 @@
 const fs = require('fs')
 
-function read(file){
-    fs.readFile(file, (err, data) => {
-        err && console.log(err)
-        const Data = JSON.parse(data)
-        return Data
-    })
+ async function read(file){
+     let final = []
+     return JSON.parse(fs.readFileSync(file))
 }
 
 function write(file,data){
     fs.writeFile(file,JSON.stringify(data),(err)=>{
         if (err) console.log(err)
-        console.log('file writed')
+        console.log('file writen')
     })
 }
 
-function save(file,data){
-    const old = loadFile(file)
-    old.push(data)
-    write(old,data)
-}
+function save(file,Data){
+    let old
+    fs.readFile(file, (err, data) => {
+        // console.log(data.byteLength)
+        err && console.log(err)
+        if(data.byteLength > 0) old = JSON.parse(data)
+        
+        if(old === undefined || old === null) {
+            write(file,[Data])
+            // console.log(11)
+        }else{
+            // console.log(10)
+            // if (old.find((user)=>{
+            //     user.email === data.email
+            // })){
+            //     console.log('user exist')
+            // }else{
+                old.push(Data)
+                write(file,old)
+            // }
+        }
+    })
+        
+    }
+
+
+module.exports = {read,write,save}

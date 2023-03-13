@@ -6,6 +6,20 @@ POST http://localhost:3500/auth/register HTTP/1.1
 content-type: application/json
 
 {
-    "name": "sample",
-    "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+    "firstname" : "Tommy",
+    "lastname": "Abraham",
+    "email" : "binmulindi.abraham@gmail.com",
+    "password" : "Kabanga66",
+    "category": "client",
+    "newsLetter": true
+}
+
+########
+
+POST http://localhost:3500/auth/login HTTP/1.1
+content-type: application/json
+
+{
+    "email" : "binmulindi.abraham@gmail.com",
+    "password" : "kabanga66"
 }
