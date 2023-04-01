@@ -38,4 +38,4 @@ function save(file,Data){
     }
 
 
-module.exports = {read,write,save}
+module.exports = {read,save}

@@ -23,3 +23,25 @@ content-type: application/json
     "email" : "binmulindi.abraham@gmail.com",
     "password" : "kabanga66"
 }
+########
+
+
+POST http://localhost:3500/jobs/create HTTP/1.1
+content-type: application/json
+
+{
+        "headline" : "job.headline",
+        "skills" : ["job.skills1","job.skills2"],
+        "scope": "job.scope",
+        "budget": "job.budget",
+        "title": "job.title",
+        "description": "job.description",
+        "files": []
+}
+
+####
+
+GET http://localhost:3500/jobs/all
+####
+
+GET http://localhost:3500/jobs/1

@@ -14,7 +14,10 @@ router.get('/login' , (req,res) => {
 const users = []
 router.post('/register',urlencodedParser, (req,res) => {
     const user = req.body
+    const id = 'tnw' + Math.random(3) + "usr" + Math.random(3)
+
     const data  = {
+        id: id,
         firstname : user.firstname,
         lastname: user.lastname,
         email : user.email,
@@ -57,6 +60,7 @@ router.post('/login',urlencodedParser, (req,res) => {
             dbUser = data
             return data.email === user.email
         })){
+            
             res.status(200).send(dbUser)
         }else{
             res.status(200).send({message :'email incorrect'})
