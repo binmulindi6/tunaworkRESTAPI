@@ -36,7 +36,9 @@ router.get('/:id', (req,res) => {
 router.post('/create', urlencodedParser, (req,res)=> {
     // console.log(req.body)
     const job = req.body
+    const id = "tnw" + Math.floor(Math.random() * 999) + "job" + Math.floor(Math.random() * 99)
     const data = {
+        id: id,
         title: job.title,
         headline : job.headline,
         category : job.category,
